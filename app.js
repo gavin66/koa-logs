@@ -1,13 +1,16 @@
 const Koa = require('koa')
 const KoaRouter = require('koa-router')
 const KoaBodyParser = require('koa-bodyparser')
-const KoaJson = require('koa-json')
+// const KoaJson = require('koa-json')
+const KoaCors = require('koa2-cors')
 const conf = require('./config')
 const DB = require('./mongo')
 
 const app = new Koa()
 app.use(KoaBodyParser())
-app.use(KoaJson())
+// app.use(KoaJson())
+// 支持跨域
+app.use(KoaCors())
 
 const router = new KoaRouter()
 
